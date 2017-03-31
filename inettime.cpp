@@ -99,7 +99,7 @@
 /* Linux assumed   */
 #else /* Linux/UNIX includes */
 
-#pragma message("inettime - Linux/FreeBSD compilation...")
+#pragma message("inettime - Linux/MacOS/FreeBSD compilation...")
 
 #include <stdio.h>
 #include <stdlib.h>
