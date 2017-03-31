@@ -8,12 +8,12 @@ I have successfully used the program on Windows, Linux, FreeBSD, OpenVMS and Mac
 
 ## Revision history
 In the beginning, this tool used the US Navy's websites output and screen scraped output in the html body, but when the program became popular world wide, 
-the website started to use random output date format. Then I changed to using the Date: attribute in the standard http response.
-Some 17 years after I wrote the program, I switched to use Microsoft Azure as the source of time, since if Azure have a time skew problem, many enterprises
+the website started to use random output date formats. Then I changed to using the Date: attribute in the standard http response.
+Some 17 years after I wrote the program, I switched to use Microsoft Azure as the source of time, since I thought that if Azure have a time skew problem, many enterprises
 in the world have a time skew problem.
 
 ## Building the sample on Linux
-Git clone the code and either run make on MacOS/Linux/FreeBSD, the DCL script on OpenVMS or build the code using Visual Studio on Windows.
+Git clone the code and either run "make" on MacOS/Linux/FreeBSD, the DCL script on OpenVMS or build the code using Visual Studio on Windows.
 My most recent test builds have been on Windows 10/VS2015, MacOS El capitain, Linux Ubuntu 14.04. 
 Back in the hay-days I built on OpenVMS 7.2 and it was used for a very long time at an not-so-small financial institute who asked me to update and maintain it for them.
 
