@@ -357,6 +357,8 @@ BOOL SetSystemTime( const SYSTEMTIME *pSystemTime )
 	// the hour to UTC time.
 #if (defined WIN32)
 	t = t + (-1 * _timezone);
+#elif (defined __APPLE__) // OpenVMS
+	t = t + (-1 * timezone);
 #elif (defined __LINUX__)// Linux
 	t = t + (-1 * __timezone);
 #elif (defined __vms) // OpenVMS
