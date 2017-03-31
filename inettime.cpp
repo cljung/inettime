@@ -459,15 +459,15 @@ u_long GetHostAddress (char *pszHost)
 		/* If not an address, then try to resolve it as a hostname */
 		if ((lAddr == INADDR_NONE) && ( strcmp (pszHost, "255.255.255.255")))
 		{
-#if (!defined __LINUX__) && (!defined __FREEBSD__)
+//#if (!defined __LINUX__) && (!defined __FREEBSD__) && (!defined __APPLE__)
 			struct hostent	*pHost = 0;
 
 			if ( ( pHost = gethostbyname(pszHost) ) ) // hosts/DNS lookup
 				 lAddr = *((u_long*)(pHost->h_addr));
 			else lAddr = INADDR_ANY;   /* failure */
-#else
-			lAddr = INADDR_ANY;
-#endif
+//#else
+//			lAddr = INADDR_ANY;
+//#endif
 		}
 	}
 	return lAddr; 
