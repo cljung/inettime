@@ -484,7 +484,7 @@ void ReportError( char *pszApi )
 #endif
 
 	if ( gfVerbose )
-		printf( "Error %d calling winsock api %s", rc, pszApi );
+		printf( "Error %d calling api %s", rc, pszApi );
 
 #ifdef WIN32
 	char	szRc[16];
