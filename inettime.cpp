@@ -110,6 +110,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <sys/time.h>
+#include <time.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
 #include <sys/utsname.h>
