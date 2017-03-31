@@ -170,9 +170,11 @@ int strnicmp( const char *string1, const char *string2, size_t count );
 #endif
 /*/////////////////////////////////////////////////////////////////////// */
 
+#ifdef WIN32
 #include "msgs.h"
+#endif
 
-#define DIM(x)				sizeof(x)/sizeof(x[0])
+#define DIM(x)				(int)(sizeof(x)/sizeof(x[0]))
 #define STR_EVENTSOURCE		"INetTime"
 #define MAX_BUFSIZE			4096
 
@@ -313,7 +315,7 @@ int stime( const time_t *newtime )
 }
 #endif
 
-#ifdef __FREEBSD__
+#if (defined __FREEBSD__) || (defined __APPLE__)
 // FreeBSD implementation of Linux stime() C-rtl function
 int stime( const time_t *newtime )
 {
@@ -716,7 +718,7 @@ char * DateToString( SYSTEMTIME& st, char *pszDate, int cchDate )
 	strcat( pszDate, " " );
 	GetTimeFormat( LOCALE_SYSTEM_DEFAULT, LOCALE_NOUSEROVERRIDE, &st, 0, pszDate+cch, cchDate-cch );
 #else
-	sprintf( pszDate, "%04d-%02d-%02d %02d:%02d:%02d"
+	cchDate = sprintf( pszDate, "%04d-%02d-%02d %02d:%02d:%02d"
 			, st.wYear, st.wMonth, st.wDay
 			, st.wHour, st.wMinute, st.wSecond 
 			);
