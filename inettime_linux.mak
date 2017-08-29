@@ -23,6 +23,10 @@ all: linker
 #
 inettime: $(OUTDIR)/inettime$(OBJ)
 
+# msgs.h is a Windows only file, so just create a dummy one here
+msgs.h:
+	touch msgs.h
+
 $(OUTDIR)/inettime$(OBJ): $(OUTDIR) inettime.cpp msgs.h
 	$(CC) $(DEFS) $(INC) $(CFLAGS) -c inettime.cpp -o $(OUTDIR)/inettime$(OBJ)
 
