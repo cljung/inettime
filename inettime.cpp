@@ -184,7 +184,7 @@ int strnicmp( const char *string1, const char *string2, size_t count );
 #define STR_HTTP			"http://"
 //#define STR_WEBSRV			"tycho.usno.navy.mil"
 //#define STR_URI				"/cgi-bin/timer.pl"
-#define STR_WEBSRV			"azure.com"
+#define STR_WEBSRV			"azure.microsoft.com"
 #define STR_URI				"/"
 #define STR_URL				STR_WEBSRV STR_URI
 
