@@ -1017,8 +1017,19 @@ int main(int argc, char* argv[])
 	int		n;
 	char	chBuf[ MAX_BUFSIZE + 1];
 
-	//if ( argc >= 3 )
-	//	pszProxy = argv[2];
+	char	szCopyright[] = { "(C)" };
+#ifdef _MSC_VER
+	char	szType[] = { "Windows" };
+	strcpy(szCopyright, "©");
+#elif (defined __vms) /* OpenVMS */
+	char	szType[] = { "OpenVMS" };
+#elif (defined __APPLE__) /* Mac includes */
+	char	szType[] = { "Mac OS" };
+#elif (defined __LINUX__) /* Linux/UNIX includes */
+	char	szType[] = { "Linux" };
+#else
+	char	szType[] = { "Other OS" };
+#endif
 
 	for( n = 1; n < argc; n++ )
 	{
@@ -1036,9 +1047,10 @@ int main(int argc, char* argv[])
 			if ( toupper(*(argv[n]+1)) == 'S' ) 
 				fSetSystemTime = true;
 			else
-			if ( *(argv[1]+1) == '?' ) 
+			if ( *(argv[1]+1) == '?' || *(argv[1] + 1) == 'h')
 			{
-				printf( "syntax: inettime [/S] [/Proxy:xxx.yyy.zzz.www:port]\n\n"
+				printf( "inettime version 1.05 for %s - RedBaronOfAzure. Copyright %s 2018\n\n"
+						"syntax: inettime [/S] [/Proxy:xxx.yyy.zzz.www:port]\n\n"
 					    "Gets Coordinated Universal Time (UTC) Time from US Navy Web site\n\n"
 						"url: %s\n"
 						"\n"
@@ -1051,7 +1063,7 @@ int main(int argc, char* argv[])
 						"Note!\n"
 						"You must have internet access on the user account running this program\n"
 						"and you must have proper OS priviledge to adjust the computers clock!\n"
-						, pszUrl
+						, szType, szCopyright, pszUrl
 						);
 				return 0;
 			}

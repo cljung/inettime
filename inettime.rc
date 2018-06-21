@@ -28,8 +28,8 @@ LANGUAGE LANG_SWEDISH, SUBLANG_DEFAULT
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,4,0,0
- PRODUCTVERSION 1,4,0,0
+ FILEVERSION 1,5,0,0
+ PRODUCTVERSION 1,5,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -47,14 +47,14 @@ BEGIN
             VALUE "Comments", "You must have internet access on the user account running this program!\0"
             VALUE "CompanyName", "RedBaronOfAzure\0"
             VALUE "FileDescription", "Gets/Sets Coordinated Universal Time (UTC) Time from public time source\0"
-            VALUE "FileVersion", "1.04.0000\0"
+            VALUE "FileVersion", "1.05.0000\0"
             VALUE "InternalName", "inettime\0"
-            VALUE "LegalCopyright", "Copyright © 2000-2017, Christer Ljung, redbaronofazure.com\0"
+            VALUE "LegalCopyright", "Copyright © 2000-2018, Christer Ljung, redbaronofazure.com\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "inettime.exe\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "inettime\0"
-            VALUE "ProductVersion", "1.04\0"
+            VALUE "ProductVersion", "1.05\0"
             VALUE "SpecialBuild", "\0"
         END
     END
