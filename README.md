@@ -24,7 +24,8 @@ make
 </pre>
 
 ### Windows
-Open inettime.sln in Visual Studio and build it. I've used VS2015 and Windows 10 for my latest build environment
+Open inettime.sln in Visual Studio and build it. I've used VS2017 and Windows 10 for my latest build environment.
+You can build it in a VSTS Build Pipeline using the normal "Build Solution **\*.sln" step, but you need to specify /p:platform="Win32" as MSBuild Arguments, since Any CPU won't work.
 
 ### OpenVMS
 Run the DCL script inettime_openvms.com to build the program on OpenVMS.
