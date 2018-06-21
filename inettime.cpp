@@ -44,6 +44,9 @@
 //
 #ifdef WIN32
 
+#define _CRT_SECURE_NO_WARNINGS
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+
 #if (defined _WIN64) && (defined AMD64)
 #pragma message("inettime - Windows AMD64 compilation...")
 #else
@@ -166,7 +169,7 @@ typedef struct _SYSTEMTIME {
 } SYSTEMTIME;
 
 // oddly enought this C-rtl is missing under OpenVMS and Linux
-int strnicmp( const char *string1, const char *string2, size_t count );
+int _strnicmp( const char *string1, const char *string2, size_t count );
 
 #endif
 /*/////////////////////////////////////////////////////////////////////// */
@@ -226,7 +229,7 @@ int ConvMonthToInt( char *pszMonth )
 
 	for( n = 0; n < DIM(gMonths); n++ )
 	{
-		if ( !strnicmp( pszMonth, gMonths[n], strlen(gMonths[n]) ) )
+		if ( !_strnicmp( pszMonth, gMonths[n], strlen(gMonths[n]) ) )
 			return n+1;
 	}
 	return 0;
@@ -383,7 +386,7 @@ BOOL SetSystemTime( const SYSTEMTIME *pSystemTime )
 	else return FALSE;
 }
 
-int strnicmp( const char *string1, const char *string2, size_t count )
+int _strnicmp( const char *string1, const char *string2, size_t count )
 {
 	char	ch1, ch2;
 	size_t	n = 0;
@@ -1021,10 +1024,10 @@ int main(int argc, char* argv[])
 	{
 		if ( (*argv[n] == '-' || *argv[n] == '/' ) )
 		{
-			if ( !strnicmp(argv[n]+1, "Proxy:", 6 ) )
+			if ( !_strnicmp(argv[n]+1, "Proxy:", 6 ) )
 				SetProxyAddress( argv[n]+7 );
 			else
-			if ( !strnicmp(argv[n]+1, "timeout:", 8 ) )
+			if ( !_strnicmp(argv[n]+1, "timeout:", 8 ) )
 				SetTimeout( argv[n] );
 			else
 			if ( toupper(*(argv[n]+1)) == 'V' ) 
